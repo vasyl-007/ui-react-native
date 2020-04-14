@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Navbar } from "./src/Navbar";
 import { PickerComponent } from "./src/PickerComponent";
+import { SwitchComponent } from "./src/SwitchComponent";
+
 
 export default function App() {
   return (
@@ -9,6 +11,7 @@ export default function App() {
       {/* <Text style={styles.text}>Hello React Navitve!!!</Text> */}
       <Navbar title="Todo App"/>
       <PickerComponent />
+      <SwitchComponent />
     </View>
   );
 }
