@@ -15,7 +15,11 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderWidth: 1,
       borderColor: 'grey',
-      marginBottom: 10
+      marginBottom: 16,
+      height: 34,
+      borderRadius: 6,
+      paddingLeft: 10
+
 
   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView, FlatList } from "react-native";
 import shortId from "shortid";
 import { Navbar } from "./src/Navbar";
 import { PickerComponent } from "./src/PickerComponent";
@@ -8,7 +8,18 @@ import { AddTodo } from "./src/AddTodo";
 import { Todo } from "./src/Todo";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([
+    { id: "id-10", title: "Task 10" },
+    { id: "id-9", title: "Task 9" },
+    { id: "id-8", title: "Task 8" },
+    { id: "id-7", title: "Task 7" },
+    { id: "id-6", title: "Task 6" },
+    { id: "id-5", title: "Task 5" },
+    { id: "id-4", title: "Task 4" },
+    { id: "id-3", title: "Task 3" },
+    { id: "id-2", title: "Task 2" },
+    { id: "id-1", title: "Task 1" },
+  ]);
 
   const addTodo = (title) => {
     const newTodo = {
@@ -24,11 +35,17 @@ export default function App() {
       <View style={styles.container}>
         <AddTodo onSubmit={addTodo} />
 
-        <View>
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={todos}
+          renderItem={({ item }) => <Todo todo={item} />}
+        />
+
+        {/* <ScrollView>
           {todos.map((todo) => (
             <Todo key={todo.id} todo={todo} />
           ))}
-        </View>
+        </ScrollView> */}
       </View>
       {/* <PickerComponent />
       <SwitchComponent /> */}
@@ -41,15 +58,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 20,
   },
-  //   container: {
-  //     flex: 1,
-  //     backgroundColor: "purple",
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //   },
-  //   text: {
-  //     fontSize: 30,
-  //     color: "white",
-  //     textAlign: "center",
-  //   },
 });

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Button, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Button,
+  TextInput,
+  StyleSheet,
+  Keyboard,
+  Alert,
+} from "react-native";
 
 export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState("");
@@ -8,7 +15,14 @@ export const AddTodo = ({ onSubmit }) => {
   };
 
   const pressHandler = () => {
-    onSubmit("test todo");
+    if (value.trim()) {
+      onSubmit(value);
+      setValue("");
+      Keyboard.dismiss();
+    } else {
+      Alert.alert("Task can't be an empty");
+      Keyboard.dismiss();
+    }
   };
   return (
     <View style={styles.block}>
@@ -17,7 +31,11 @@ export const AddTodo = ({ onSubmit }) => {
         value={value}
         onChangeText={getValue}
         // onChangeText={(text) => setValue(text)}
+        // onChangeText={setValue}
         placeholder="Enter new task..."
+        autoCorrect={true}
+        autoCapitalize="sentences"
+        keyboardType="numbers-and-punctuation"
       />
       <Button title="Add new task" onPress={pressHandler} />
     </View>
