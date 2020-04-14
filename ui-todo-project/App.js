@@ -1,25 +1,34 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { Navbar } from "./src/Navbar";
+import { PickerComponent } from "./src/PickerComponent";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello React Native! This is new App</Text>
+      {/* <Text style={styles.text}>Hello React Navitve!!!</Text> */}
+      <Navbar title="Todo App"/>
+      <PickerComponent />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "purple",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 40
-  },
-  text: {
-    color: 'white',
-    fontSize: 30,
-    textAlign: 'center'
-  }
+//   container: {
+//     flex: 1,
+//     backgroundColor: "purple",
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   //   container2: {
+//   // flex: 1,
+//   //     backgroundColor: "green",
+//   //     justifyContent: "center",
+//   //     alignItems: "center",
+//   //   },
+//   text: {
+//     fontSize: 30,
+//     color: "white",
+//     textAlign: "center",
+//   },
 });
