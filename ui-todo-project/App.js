@@ -28,6 +28,10 @@ export default function App() {
     };
     setTodos((prev) => [newTodo, ...prev]);
   };
+
+  const removeTodo = (id) => {
+    setTodos((prev) => prev.filter((item) => item.id !== id));
+  };
   return (
     <View>
       {/* <Text style={styles.text}>Hello React Navitve!!!</Text> */}
@@ -38,7 +42,9 @@ export default function App() {
         <FlatList
           keyExtractor={(item) => item.id}
           data={todos}
-          renderItem={({ item }) => <Todo todo={item} />}
+          renderItem={({ item }) => (
+            <Todo todo={item} onRemoveTodo={removeTodo} />
+          )}
         />
 
         {/* <ScrollView>
