@@ -5,6 +5,7 @@ import { Navbar } from "./src/Navbar";
 import { PickerComponent } from "./src/PickerComponent";
 import { SwitchComponent } from "./src/SwitchComponent";
 import { AddTodo } from "./src/AddTodo";
+import { Todo } from "./src/Todo";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -24,9 +25,9 @@ export default function App() {
         <AddTodo onSubmit={addTodo} />
 
         <View>
-          {todos.map((todo) => {
-            return <Text key={todo.id}>{todo.title}</Text>;
-          })}
+          {todos.map((todo) => (
+            <Todo key={todo.id} todo={todo} />
+          ))}
         </View>
       </View>
       {/* <PickerComponent />
