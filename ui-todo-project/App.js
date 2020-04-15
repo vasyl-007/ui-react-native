@@ -35,16 +35,16 @@ export default function App() {
     const todo = todos.find((el) => el.id === id);
     Alert.alert(
       "Removing the task",
-      `Do you want to delete "${todo.title}"?`,
+      `Do you want to delete ${todo.title}?`,
       [
         {
           text: "Cancel",
-          // onPress: () => Alert.alert("Cancel Pressed"),
+          onPress: () => console.log("Cancel Pressed"),
           style: "cancel",
         },
         {
           text: "Delete",
-          // style: "positive",
+          // style: "negative",
           onPress: () => {
             setTodoId(null);
             setTodos((prev) => prev.filter((todo) => todo.id !== id));
