@@ -7,6 +7,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import { THEME } from "../../theme";
 
 export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState("");
@@ -55,6 +56,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderStyle: "solid",
     borderBottomWidth: 1,
-    borderBottomColor: "blue",
+    borderBottomColor: THEME.MAIN_COLOR,
   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, ScrollView, FlatList } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
 import shortId from "shortid";
 import { Navbar } from "./src/components/Navbar";
 import { PickerComponent } from "./src/PickerComponent";
@@ -8,7 +8,7 @@ import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
 
 export default function App() {
-  const [todoId, setTodoId] = useState(null);
+  const [todoId, setTodoId] = useState("id-10");
 
   const [todos, setTodos] = useState([
     { id: "id-10", title: "Task 10" },
@@ -32,6 +32,28 @@ export default function App() {
   };
 
   const removeTodo = (id) => {
+    const todo = todos.find((el) => el.id === id);
+    Alert.alert(
+      "Removing the task",
+      `Do you want to delete "${todo.title}"?`,
+      [
+        {
+          text: "Cancel",
+          // onPress: () => Alert.alert("Cancel Pressed"),
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          // style: "positive",
+          onPress: () => {
+            setTodoId(null);
+            setTodos((prev) => prev.filter((todo) => todo.id !== id));
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+
     setTodos((prev) => prev.filter((item) => item.id !== id));
   };
 
@@ -47,16 +69,20 @@ export default function App() {
     />
   );
   if (todoId) {
-    const selectedTodo = todos.find(todo => todo.id === todoId)
-    content = <TodoScreen goBack={() => setTodoId(null)} todo={selectedTodo} />;
+    const selectedTodo = todos.find((todo) => todo.id === todoId);
+    content = (
+      <TodoScreen
+        onRemove={removeTodo}
+        goBack={() => setTodoId(null)}
+        todo={selectedTodo}
+      />
+    );
   }
   return (
     <View>
-      {/* <Text style={styles.text}>Hello React Navitve!!!</Text> */}
       <Navbar title="Todo App" />
       <View style={styles.container}>
         {content}
-        {/* <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} /> */}
         {/* <ScrollView>
           {todos.map((todo) => (
             <Todo key={todo.id} todo={todo} />
