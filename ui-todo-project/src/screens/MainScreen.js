@@ -19,12 +19,6 @@ export const MainScreen = ({ todos, addTodo, removeTodo, openTodo }) => {
           <Todo todo={item} onRemoveTodo={removeTodo} onOpen={openTodo} />
         )}
       />
-      <View>
-        <ImageBackground
-          source={require("../../assets/task-management-bg.png")}
-          style={styles.backImage}
-        ></ImageBackground>
-      </View>
     </View>
   );
 
@@ -66,7 +60,8 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   backImage: {
-    height: 250,
+    width: 320,
+    height: 390,
     resizeMode: "contain",
   },
 });

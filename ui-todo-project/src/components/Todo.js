@@ -15,7 +15,7 @@ export const Todo = ({ todo, onRemoveTodo, onOpen }) => {
       //   onLongPress={handlerDel}
     >
       <View style={styles.todo}>
-        <Text>{todo.title}</Text>
+        <Text style={styles.title}>{todo.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -27,9 +27,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "grey",
-    marginBottom: 16,
-    height: 34,
+    marginBottom: 26,
+    height: 36,
     borderRadius: 6,
     paddingLeft: 10,
+  },
+  title: {
+    fontSize: 18,
+    // color: 'white'
   },
 });

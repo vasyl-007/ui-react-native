@@ -46,7 +46,6 @@ export const AddTodo = ({ onSubmit }) => {
 const styles = StyleSheet.create({
   block: {
     flexDirection: "row",
-    // marginTop: 20,
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 14,
@@ -57,5 +56,6 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderBottomWidth: 1,
     borderBottomColor: THEME.MAIN_COLOR,
+    fontSize: 20,
   },
 });
