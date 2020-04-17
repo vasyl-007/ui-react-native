@@ -35,26 +35,24 @@ export default function App() {
     const todo = todos.find((el) => el.id === id);
     Alert.alert(
       "Removing the task",
-      `Do you want to delete ${todo.title}?`,
+      `Do you want to delete "${todo.title}"?`,
       [
         {
           text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel",
+          // onPress: () => console.log("Cancel Pressed"),
+          style: "negative",
         },
         {
           text: "Delete",
-          // style: "negative",
+          style: "positive",
           onPress: () => {
             setTodoId(null);
-            setTodos((prev) => prev.filter((todo) => todo.id !== id));
+            setTodos((prev) => prev.filter((item) => item.id !== id));
           },
         },
       ],
       { cancelable: false }
     );
-
-    setTodos((prev) => prev.filter((item) => item.id !== id));
   };
 
   let content = (
