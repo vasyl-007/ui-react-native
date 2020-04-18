@@ -7,7 +7,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import moduleName from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { THEME } from "../../theme";
 
 export const AddTodo = ({ onSubmit }) => {
@@ -40,7 +40,10 @@ export const AddTodo = ({ onSubmit }) => {
         autoCapitalize="sentences"
         keyboardType="numbers-and-punctuation"
       />
-      <Button title="Add new task" onPress={pressHandler} />
+      <AntDesign.Button onPress={pressHandler} name="plussquare">
+        ADD TASK
+      </AntDesign.Button>
+      {/* <Button title=" Add new task" onPress={pressHandler} /> */}
     </View>
   );
 };

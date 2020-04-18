@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 6440,
+  "expoServerNgrokUrl": "https://xu-r87.anonymous.ui-todo-project.exp.direct",
+  "packagerNgrokUrl": "https://packager.xu-r87.anonymous.ui-todo-project.exp.direct",
+  "ngrokPid": 288,
   "webpackServerPort": 19006
 }
