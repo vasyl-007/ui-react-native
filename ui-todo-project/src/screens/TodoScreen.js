@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Button, Dimensions } from "react-native";
+import { FontAwesome, AntDesign } from "@expo/vector-icons";
 import { THEME } from "../../theme";
 import { AppCard } from "../components/ui/AppCard";
 import { EditModal } from "../components/EditModal";
@@ -22,20 +23,44 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
 
       <AppCard style={styles.card}>
         <Text style={styles.title}>{todo.title}</Text>
-        <Button title="Edit" onPress={() => setModal(true)} />
+        <AntDesign.Button
+          onPress={() => setModal(true)}
+          name="edit"
+          style={{ paddingRight: 12 }}
+        >
+          Edit
+        </AntDesign.Button>
+        {/* <Button title="Edit" onPress={() => setModal(true)} /> */}
       </AppCard>
 
       <View style={styles.buttons}>
         <View style={styles.button}>
-          <Button title="Back" onPress={goBack} color={THEME.GREY_COLOR} />
+          <AntDesign.Button
+            onPress={goBack}
+            backgroundColor={THEME.GREY_COLOR}
+            name="back"
+          >
+            BACK
+          </AntDesign.Button>
+
+          {/* <Button title="Back" onPress={goBack} color={THEME.GREY_COLOR} /> */}
         </View>
         <View style={styles.button}>
-          <Button
+          <FontAwesome.Button
+            // color="#c53935"
+            onPress={() => onRemove(todo.id)}
+            // color={THEME.DANGER_COLOR}
+            name="remove"
+            backgroundColor={THEME.DANGER_COLOR}
+          >
+            DELETE
+          </FontAwesome.Button>
+          {/* <Button
             title="Delete"
             color="#c53935"
             onPress={() => onRemove(todo.id)}
             color={THEME.DANGER_COLOR}
-          />
+          /> */}
         </View>
       </View>
     </View>
@@ -52,7 +77,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   button: {
-    width: "34%",
+    // width: "34%",
+    width: Dimensions.get("window").width / 3.3,
+    // width: Dimensions.get('window').width > 400 ? 150 : 110
   },
   title: {
     fontSize: 22,
