@@ -7,6 +7,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import moduleName from "@expo/vector-icons";
 import { THEME } from "../../theme";
 
 export const AddTodo = ({ onSubmit }) => {
@@ -17,6 +18,7 @@ export const AddTodo = ({ onSubmit }) => {
 
   const pressHandler = () => {
     if (value.trim()) {
+      // const datedAt = new Date().toDateString();
       onSubmit(value);
       setValue("");
       Keyboard.dismiss();

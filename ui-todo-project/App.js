@@ -1,14 +1,35 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
+// import * as Font from "expo-font";
+// import { AppLoading } from "expo";
 import shortId from "shortid";
+
 import { Navbar } from "./src/components/Navbar";
 import { PickerComponent } from "./src/PickerComponent";
 import { SwitchComponent } from "./src/SwitchComponent";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
 
+// async function loadApplication() {
+//   await Font.loadAsync({
+//     robotoRegular: require("./assets/fonts/Roboto-Regular.ttf"),
+//     "font-bold": require("./assets/fonts/BalooTamma2-Bold.ttf"),
+//   });
+// }
+
 export default function App() {
+  // const [isReady, setIsReady] = useState(false);
   const [todoId, setTodoId] = useState(null);
+
+  // if (!isReady) {
+  //   return (
+  //     <AppLoading
+  //       startAsync={loadApplication}
+  //       onError={(err) => console.log(err)}
+  //       onFinish={() => setIsReady(true)}
+  //     />
+  //   );
+  // }
 
   const [todos, setTodos] = useState([
     { id: "id-11", title: "Task 11" },
@@ -97,11 +118,12 @@ export default function App() {
         {/* <ScrollView>
           {todos.map((todo) => (
             <Todo key={todo.id} todo={todo} />
-          ))}
-        </ScrollView> */}
+            ))}
+          </ScrollView> */}
       </View>
-      {/* <PickerComponent />
-      <SwitchComponent /> */}
+
+      {/* <PickerComponent /> */}
+      {/* <SwitchComponent /> */}
     </View>
   );
 }
