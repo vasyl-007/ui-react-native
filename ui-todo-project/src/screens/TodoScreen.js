@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, Button, Dimensions } from "react-native";
 import { FontAwesome, AntDesign } from "@expo/vector-icons";
 import { THEME } from "../../theme";
@@ -12,6 +12,23 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
     onSave(todo.id, title);
     setModal(false);
   };
+
+  const [devWidth, setDevWidth] = useState(
+    Dimensions.get("window").width / 3.3
+  );
+
+  useEffect(() => {
+    const update = () => {
+      const buttonWidth = Dimensions.get("window").width / 3.3;
+      setDevWidth(buttonWidth);
+    };
+    Dimensions.addEventListener("change", update);
+
+    return () => {
+      Dimensions.removeEventListener("change", update);
+    };
+  });
+
   return (
     <View>
       <EditModal
@@ -77,8 +94,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   button: {
-    // width: "34%",
-    width: Dimensions.get("window").width / 3.3,
+    width: "32%",
+    // width: devWidth,
+    // width: Dimensions.get("window").width / 3.3,
     // width: Dimensions.get('window').width > 400 ? 150 : 110
   },
   title: {

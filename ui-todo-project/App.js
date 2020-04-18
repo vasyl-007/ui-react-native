@@ -9,6 +9,7 @@ import { PickerComponent } from "./src/PickerComponent";
 import { SwitchComponent } from "./src/SwitchComponent";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
+import { THEME } from "./theme";
 
 // async function loadApplication() {
 //   await Font.loadAsync({
@@ -130,7 +131,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: THEME.PADDING_HORIZONTAL,
     paddingVertical: 20,
   },
 });
