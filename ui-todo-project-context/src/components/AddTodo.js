@@ -23,7 +23,7 @@ export const AddTodo = ({ onSubmit }) => {
       setValue("");
       Keyboard.dismiss();
     } else {
-      Alert.alert("Task can't be an empty");
+      Alert.alert("Task can't be empty");
       Keyboard.dismiss();
     }
   };
