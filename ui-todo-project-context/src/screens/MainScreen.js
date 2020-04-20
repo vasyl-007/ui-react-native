@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
-import { THEME } from "../../theme";
+import { THEME } from "../theme";
 
 export const MainScreen = ({ todos, addTodo, removeTodo, openTodo }) => {
   const [deviceWidth, setDeviceWidth] = useState(
